@@ -10,11 +10,12 @@
 #import "MovieCollectionCell.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *filteredMovies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation MoviesGridViewController
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.searchBar.delegate = self;
     
     [self fetchMovies];
     
@@ -36,6 +38,8 @@
     CGFloat itemHeight = itemWidth * 1.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
+    self.filteredMovies = self.movies;
+    NSLog(@"filteredMovies are all");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +60,7 @@
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
             self.movies = dataDictionary[@"results"];
+            self.filteredMovies = self.movies;
             [self.collectionView reloadData];
         }
     }];
@@ -77,7 +82,7 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
-    NSDictionary *movie = self.movies[indexPath.item];
+    NSDictionary *movie = self.filteredMovies[indexPath.item];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
@@ -90,8 +95,38 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredMovies.count;
 }
 
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject[@"title"] containsString:searchText];
+        }];
+        self.filteredMovies = [self.movies filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredMovies);
+        
+    }
+    else {
+        self.filteredMovies = self.movies;
+    }
+    
+    [self.collectionView reloadData];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+}
 
 @end
