@@ -21,6 +21,8 @@
 		A498E35C20E41275007EFA68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A498E35B20E41275007EFA68 /* main.m */; };
 		A498E36620E41275007EFA68 /* FlixDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A498E36520E41275007EFA68 /* FlixDemoTests.m */; };
 		A498E37120E41275007EFA68 /* FlixDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A498E37020E41275007EFA68 /* FlixDemoUITests.m */; };
+		A4B9B6BF20E6D2820066439A /* MovieTrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B9B6BE20E6D2820066439A /* MovieTrailerViewController.m */; };
+		A4B9B6C120E6D8440066439A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B9B6C020E6D8440066439A /* WebKit.framework */; };
 		B9BB939DE53CDB53975A233F /* libPods-FlixDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E48E49EC276D6CD30E7DF4 /* libPods-FlixDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,9 @@
 		A498E36C20E41275007EFA68 /* FlixDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A498E37020E41275007EFA68 /* FlixDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlixDemoUITests.m; sourceTree = "<group>"; };
 		A498E37220E41275007EFA68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4B9B6BD20E6D2820066439A /* MovieTrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieTrailerViewController.h; sourceTree = "<group>"; };
+		A4B9B6BE20E6D2820066439A /* MovieTrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieTrailerViewController.m; sourceTree = "<group>"; };
+		A4B9B6C020E6D8440066439A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C6EC905946CE746A4C95E15C /* libPods-FlixDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlixDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B9B6C120E6D8440066439A /* WebKit.framework in Frameworks */,
 				3C4E95ACDA945826E0E5C8A4 /* libPods-FlixDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +114,7 @@
 		847DF0DD4214728B34F6FF76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4B9B6C020E6D8440066439A /* WebKit.framework */,
 				642381B9CC0C0A7B36240AE1 /* libPods-FlixDemo.a */,
 				20E48E49EC276D6CD30E7DF4 /* libPods-FlixDemoTests.a */,
 				C6EC905946CE746A4C95E15C /* libPods-FlixDemoUITests.a */,
@@ -124,6 +131,8 @@
 				A487C3B120E588F5008BCE6A /* DetailsViewController.m */,
 				A487C3B320E598A6008BCE6A /* MoviesGridViewController.h */,
 				A487C3B420E598A6008BCE6A /* MoviesGridViewController.m */,
+				A4B9B6BD20E6D2820066439A /* MovieTrailerViewController.h */,
+				A4B9B6BE20E6D2820066439A /* MovieTrailerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A498E35C20E41275007EFA68 /* main.m in Sources */,
+				A4B9B6BF20E6D2820066439A /* MovieTrailerViewController.m in Sources */,
 				A487C3B220E588F5008BCE6A /* DetailsViewController.m in Sources */,
 				A498E34E20E41274007EFA68 /* AppDelegate.m in Sources */,
 				A487C3B820E59D68008BCE6A /* MovieCollectionCell.m in Sources */,

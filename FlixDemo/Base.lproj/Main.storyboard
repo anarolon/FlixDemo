@@ -116,6 +116,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbP-4C-kkW">
                                         <rect key="frame" x="16" y="119" width="110" height="162"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -129,11 +130,18 @@
                         <outlet property="posterView" destination="PbP-4C-kkW" id="BNh-os-5so"/>
                         <outlet property="synopsisLabel" destination="KN4-0A-Tw6" id="VlD-Mi-mZg"/>
                         <outlet property="titleLabel" destination="QmA-ue-LNw" id="g2Y-3O-jjr"/>
+                        <segue destination="UPm-re-gsZ" kind="show" identifier="MovieTrailerView" id="oE6-IK-7rN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U82-Yi-rdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s7p-ym-Qiv">
+                    <connections>
+                        <action selector="onTap:" destination="tnS-vo-8Az" id="Uqr-nt-gcr"/>
+                        <segue destination="UPm-re-gsZ" kind="show" id="bRF-xX-S9e"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-295" y="906"/>
+            <point key="canvasLocation" x="-295" y="967"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YvV-fG-ejb">
@@ -227,6 +235,35 @@
             </objects>
             <point key="canvasLocation" x="1692" y="200.14992503748127"/>
         </scene>
+        <!--Movie Trailer View Controller-->
+        <scene sceneID="hBy-py-qQA">
+            <objects>
+                <viewController id="UPm-re-gsZ" customClass="MovieTrailerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Ce-cx-Jgl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-zP-6q2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8cD-FI-Mgo"/>
+                    </view>
+                    <connections>
+                        <outlet property="trailerView" destination="5sb-zP-6q2" id="kq4-i8-77A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70S-Ux-veY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-295" y="1761"/>
+        </scene>
         <!--Now Playing-->
         <scene sceneID="xkA-UN-SpH">
             <objects>
@@ -247,4 +284,7 @@
             <point key="canvasLocation" x="-295.19999999999999" y="-582.45877061469275"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bRF-xX-S9e"/>
+    </inferredMetricsTieBreakers>
 </document>
