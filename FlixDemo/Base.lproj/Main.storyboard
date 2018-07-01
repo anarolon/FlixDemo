@@ -91,10 +91,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwC-5k-ULu">
-                                        <rect key="frame" x="0.0" y="-64" width="375" height="266"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmA-ue-LNw">
                                         <rect key="frame" x="134" y="229" width="233" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,14 +108,19 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JT9-EP-BO6">
                                         <rect key="frame" x="0.0" y="-64" width="375" height="266"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbP-4C-kkW">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbP-4C-kkW">
                                         <rect key="frame" x="16" y="119" width="110" height="162"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="php-To-ap4" appends="YES" id="VoG-sA-YGr"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,18 +131,17 @@
                         <outlet property="posterView" destination="PbP-4C-kkW" id="BNh-os-5so"/>
                         <outlet property="synopsisLabel" destination="KN4-0A-Tw6" id="VlD-Mi-mZg"/>
                         <outlet property="titleLabel" destination="QmA-ue-LNw" id="g2Y-3O-jjr"/>
-                        <segue destination="UPm-re-gsZ" kind="show" identifier="MovieTrailerView" id="oE6-IK-7rN"/>
+                        <segue destination="UPm-re-gsZ" kind="show" identifier="MovieTrailerView" id="m5v-Ge-P6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U82-Yi-rdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="s7p-ym-Qiv">
+                <tapGestureRecognizer id="php-To-ap4">
                     <connections>
-                        <action selector="onTap:" destination="tnS-vo-8Az" id="Uqr-nt-gcr"/>
-                        <segue destination="UPm-re-gsZ" kind="show" id="bRF-xX-S9e"/>
+                        <action selector="onTap:" destination="tnS-vo-8Az" id="TEG-q1-eyC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-295" y="967"/>
+            <point key="canvasLocation" x="-295" y="1004"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YvV-fG-ejb">
@@ -284,7 +284,4 @@
             <point key="canvasLocation" x="-295.19999999999999" y="-582.45877061469275"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="bRF-xX-S9e"/>
-    </inferredMetricsTieBreakers>
 </document>

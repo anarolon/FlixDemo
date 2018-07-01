@@ -125,8 +125,12 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     self.searchBar.showsCancelButton = NO;
-    self.searchBar.text = @"";
+    self.searchBar.text = self.searchBar.text;
     [self.searchBar resignFirstResponder];
+    if(searchBar.text == 0) {
+        self.filteredMovies = self.movies;
+        [self.collectionView reloadData];
+    }
 }
 
 @end

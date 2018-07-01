@@ -53,11 +53,10 @@
 
 
 - (IBAction)onTap:(UITapGestureRecognizer *)sender {
-    
-    NSLog(@"TAP!");
-    // User tapped at the point above. Do something with that if you want.
-    [self performSegueWithIdentifier:@"MovieTrailerView" sender:sender];
-    
+    NSLog(@"Tapped for trailer");
+    // User tapped at the point above. Do something with that if you want
+    [self performSegueWithIdentifier:@"MovieTrailerView" sender: self];
+   
 }
 /*
 
@@ -83,7 +82,7 @@
     
     MovieTrailerViewController *movieTrailerVC = [segue destinationViewController];
     movieTrailerVC.id = self.movie[@"id"];
-    
+    NSLog(@"Ready for trailer");
 }
 
 @end
