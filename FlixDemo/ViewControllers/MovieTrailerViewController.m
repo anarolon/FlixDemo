@@ -18,7 +18,6 @@
 
 @implementation MovieTrailerViewController
 
-// https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-U
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,15 +50,5 @@
     [super didReceiveMemoryWarning];
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

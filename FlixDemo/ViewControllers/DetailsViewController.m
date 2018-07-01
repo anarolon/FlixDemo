@@ -24,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = self.movie[@"poster_path"];
@@ -63,7 +62,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MovieTrailerViewController *movieTrailerVC = [segue destinationViewController];
-    // NSString *checkString = [[myDictionary objectForKey:@"somekey"] stringValue];
     movieTrailerVC.id = [[self.movie objectForKey:@"id"] stringValue];
     NSLog(@"Ready for trailer");
 }
