@@ -98,8 +98,6 @@
     return self.filteredMovies.count;
 }
 
-
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {

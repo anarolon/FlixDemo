@@ -58,30 +58,13 @@
     [self performSegueWithIdentifier:@"MovieTrailerView" sender: self];
    
 }
-/*
-
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- UITableViewCell *tappedCell = sender;
- NSIndexPath *indexPath =  [self.tableView indexPathForCell:tappedCell];
- NSDictionary *movie = self.movies[indexPath.row];
- DetailsViewController *detailViewController = [segue destinationViewController];
- detailViewController.movie = movie;
- NSLog(@"Tapping on a movie!");
- 
- }
- 
-*/
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
     MovieTrailerViewController *movieTrailerVC = [segue destinationViewController];
-    movieTrailerVC.id = self.movie[@"id"];
+    // NSString *checkString = [[myDictionary objectForKey:@"somekey"] stringValue];
+    movieTrailerVC.id = [[self.movie objectForKey:@"id"] stringValue];
     NSLog(@"Ready for trailer");
 }
 
